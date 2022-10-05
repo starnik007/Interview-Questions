@@ -1,0 +1,18 @@
+    long int y=0;
+    
+    if(x>max || x<min) 
+        return y;
+    else {
+    while(x!=0) {
+    
+    long int temp = x%10;
+    y = y*10+temp;
+    x=x/10;
+    
+        }
+    }
+    if(y>max || y<min)
+        return 0;
+    else
+    return y;
+}
