@@ -1,0 +1,12 @@
+ INT_MAX = pow(2,31) - 1
+        n = abs(x)
+        res = 0
+        while n:
+            n, d = divmod(n, 10)
+            # if res * 10 would cause overflow, then it res must be greater than INT_MAX // 10 
+            if INT_MAX // 10 < res:
+                return 0
+            # the above condition prevents this statment to causing overflow
+            res = res * 10 + d
+
+        return res if x >= 0 else -res
