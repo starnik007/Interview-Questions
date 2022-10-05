@@ -1,0 +1,30 @@
+class Solution {
+public:
+    int reverse(int x) {
+        string s = to_string(x);
+        bool is_neg = false;
+        if(s[0]=='-'){
+            is_neg = true;
+            s.erase(s.begin());
+        }
+        string::iterator it1 = s.begin();
+        string::iterator it2 = s.end()-1;
+        char it_temp;
+        while(it1<it2){
+            it_temp = *it1;
+            *it1 = *it2;
+            *it2 = it_temp;
+            it1++;
+            it2--;
+        }
+        int num;
+        try{
+            num = std::stoi(s);
+            num = is_neg?-num:num;
+        }
+        catch(...){
+            num = 0;
+        }
+        return num;
+    }
+};
